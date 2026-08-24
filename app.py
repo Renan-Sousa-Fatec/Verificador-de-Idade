@@ -615,7 +615,7 @@ with center:
             st.markdown(
                 f"""
                 <div class="custom-alert success">
-                    Bem-vindo, {nome}! Você pode acessar
+                    Muito bem, {nome}! Você pode acessar
                     por ser maior de idade.
                 </div>
                 """,
