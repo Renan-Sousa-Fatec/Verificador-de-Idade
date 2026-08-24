@@ -1,33 +1,42 @@
 import streamlit as st
 from pathlib import Path
 
+
 # ============================================================
 # CONFIGURAÇÃO DA PÁGINA
 # ============================================================
+
 st.set_page_config(
     page_title="Bark Labs | Verificador de Idade",
     page_icon="🐶",
     layout="wide"
 )
 
+
 # ============================================================
 # CAMINHOS DOS ARQUIVOS
 # ============================================================
+
 BASE_DIR = Path(__file__).parent
+
 LOGO_PATH = BASE_DIR / "assets" / "bark-labs.png"
 FOOTER_PATH = BASE_DIR / "assets" / "rodape.png"
+
 
 # ============================================================
 # CSS
 # ============================================================
+
 st.markdown("""
 <style>
 
     /* ========================================================
-       FORÇA ESQUEMA DE CORES CLARO (IGNORA DARK MODE DO SO)
+       FORÇA ESQUEMA DE CORES CLARO
        ======================================================== */
 
-    html, body, [data-testid="stAppViewContainer"] {
+    html,
+    body,
+    [data-testid="stAppViewContainer"] {
         color-scheme: light !important;
     }
 
@@ -50,7 +59,15 @@ st.markdown("""
        ======================================================== */
 
     .stApp {
-        background-color: #FBE9A0;
+        background-color: #FBE9A0 !important;
+    }
+
+    [data-testid="stAppViewContainer"] {
+        background-color: #FBE9A0 !important;
+    }
+
+    [data-testid="stMain"] {
+        background-color: #FBE9A0 !important;
     }
 
 
@@ -60,10 +77,13 @@ st.markdown("""
 
     .block-container {
         max-width: 762px !important;
+
         width: 100% !important;
 
         padding-top: 10px !important;
+
         padding-left: 16px !important;
+
         padding-right: 16px !important;
 
         padding-bottom: 0 !important;
@@ -91,7 +111,7 @@ st.markdown("""
 
 
     /* ========================================================
-       ALINHA LOGO E TÍTULO NA MESMA LINHA (CABEÇALHO)
+       ALINHA LOGO E TÍTULO NA MESMA LINHA
        ======================================================== */
 
     div[data-testid="stHorizontalBlock"]:first-of-type {
@@ -149,6 +169,7 @@ st.markdown("""
 
     .form-column {
         width: 100%;
+
         max-width: 440px;
 
         margin-left: auto;
@@ -176,12 +197,13 @@ st.markdown("""
 
 
     /* ========================================================
-       CONTÊINER E MOLDURA DA CAIXA (Sem Fundo Marrom)
+       CAMPOS DE TEXTO
        ======================================================== */
 
     div[data-testid="stTextInput"] {
 
         width: 100% !important;
+
         max-width: 440px !important;
 
         margin-left: auto !important;
@@ -192,15 +214,17 @@ st.markdown("""
     }
 
 
-    div[data-testid="stTextInput"] > div,
-    div[data-testid="stTextInput"] div[data-baseweb="input"],
-    div[data-testid="stTextInput"] div[data-baseweb="base-input"] {
+    /* ========================================================
+       MOLDURA EXTERNA
+       ======================================================== */
+
+    div[data-testid="stTextInput"] > div {
 
         width: 100% !important;
 
         height: 47px !important;
 
-        background-color: transparent !important;
+        background-color: #B84D2D !important;
 
         border: 4px solid #17130F !important;
 
@@ -214,19 +238,52 @@ st.markdown("""
     }
 
 
-    div[data-testid="stTextInput"] > div:focus-within,
-    div[data-testid="stTextInput"] div[data-baseweb="input"]:focus-within {
+    /* ========================================================
+       CAMADA BASEWEB
+       ======================================================== */
 
-        background-color: transparent !important;
+    div[data-testid="stTextInput"] div[data-baseweb="base-input"] {
 
-        border: 4px solid #17130F !important;
+        width: 100% !important;
+
+        height: 39px !important;
+
+        background-color: #B84D2D !important;
+
+        border: none !important;
+
+        border-radius: 10px !important;
 
         box-shadow: none !important;
+
+        padding: 0 !important;
+
+        box-sizing: border-box !important;
+    }
+
+
+    div[data-testid="stTextInput"] div[data-baseweb="input"] {
+
+        width: 100% !important;
+
+        height: 39px !important;
+
+        background-color: #B84D2D !important;
+
+        border: none !important;
+
+        border-radius: 10px !important;
+
+        box-shadow: none !important;
+
+        padding: 0 !important;
+
+        box-sizing: border-box !important;
     }
 
 
     /* ========================================================
-       TEXTO DENTRO DA CAIXA (Preto e Negrito)
+       INPUT REAL
        ======================================================== */
 
     div[data-testid="stTextInput"] input {
@@ -235,7 +292,77 @@ st.markdown("""
 
         height: 39px !important;
 
-        background-color: transparent !important;
+        background: #B84D2D !important;
+
+        background-color: #B84D2D !important;
+
+        color: #17130F !important;
+
+        border: none !important;
+
+        border-radius: 10px !important;
+
+        outline: none !important;
+
+        box-shadow: none !important;
+
+        padding: 0 12px !important;
+
+        box-sizing: border-box !important;
+
+        font-family: "Courier New", monospace !important;
+
+        font-size: 16px !important;
+
+        font-weight: 900 !important;
+
+        color-scheme: light !important;
+
+        -webkit-appearance: none !important;
+
+        appearance: none !important;
+    }
+
+
+    /* ========================================================
+       QUANDO CLICADO
+       ======================================================== */
+
+    div[data-testid="stTextInput"] > div:focus-within {
+
+        background-color: #B84D2D !important;
+
+        border: 4px solid #17130F !important;
+
+        box-shadow: none !important;
+    }
+
+
+    div[data-testid="stTextInput"] div[data-baseweb="base-input"]:focus-within {
+
+        background-color: #B84D2D !important;
+
+        border: none !important;
+
+        box-shadow: none !important;
+    }
+
+
+    div[data-testid="stTextInput"] div[data-baseweb="input"]:focus-within {
+
+        background-color: #B84D2D !important;
+
+        border: none !important;
+
+        box-shadow: none !important;
+    }
+
+
+    div[data-testid="stTextInput"] input:focus {
+
+        background: #B84D2D !important;
+
+        background-color: #B84D2D !important;
 
         color: #17130F !important;
 
@@ -244,25 +371,14 @@ st.markdown("""
         outline: none !important;
 
         box-shadow: none !important;
-
-        border-radius: 10px !important;
-
-        box-sizing: border-box !important;
-
-        padding: 0 12px !important;
-
-        font-family: "Courier New", monospace !important;
-
-        font-size: 16px !important;
-
-        font-weight: 900 !important;
     }
 
 
-    div[data-testid="stTextInput"] input:focus,
     div[data-testid="stTextInput"] input:active {
 
-        background-color: transparent !important;
+        background: #B84D2D !important;
+
+        background-color: #B84D2D !important;
 
         color: #17130F !important;
 
@@ -275,11 +391,36 @@ st.markdown("""
 
 
     /* ========================================================
+       HOVER
+       ======================================================== */
+
+    div[data-testid="stTextInput"] input:hover {
+
+        background: #B84D2D !important;
+
+        background-color: #B84D2D !important;
+
+        color: #17130F !important;
+    }
+
+
+    /* ========================================================
+       PLACEHOLDER
+       ======================================================== */
+
+    div[data-testid="stTextInput"] input::placeholder {
+
+        color: #17130F !important;
+
+        opacity: 1 !important;
+    }
+
+
+    /* ========================================================
        ESPAÇAMENTO ENTRE CAMPOS
        ======================================================== */
 
     .field-space {
-
         height: 28px;
     }
 
@@ -291,6 +432,7 @@ st.markdown("""
     .button-area {
 
         width: 100%;
+
         max-width: 440px;
 
         display: flex;
@@ -365,6 +507,10 @@ st.markdown("""
     }
 
 
+    /* ========================================================
+       BOTÃO - HOVER / FOCUS / ACTIVE
+       ======================================================== */
+
     .stButton button:hover,
     .stButton button:focus,
     .stButton button:active {
@@ -382,13 +528,13 @@ st.markdown("""
 
 
     /* ========================================================
-       MENSAGENS DE RESULTADO (CAIXA PRÓPRIA, SEM DEPENDER
-       DO st.warning / st.success DO STREAMLIT)
+       MENSAGENS DE RESULTADO
        ======================================================== */
 
     .custom-alert {
 
         width: 100%;
+
         max-width: 440px;
 
         margin: 10px auto;
@@ -412,7 +558,11 @@ st.markdown("""
         text-align: left;
     }
 
-    /* Maior de idade: fundo branco, letras verdes */
+
+    /* ========================================================
+       MAIOR DE IDADE
+       ======================================================== */
+
     .custom-alert.success {
 
         background-color: #FFFFFF;
@@ -420,7 +570,11 @@ st.markdown("""
         color: #198754;
     }
 
-    /* Menor de idade / erro: fundo branco, letras vermelhas */
+
+    /* ========================================================
+       MENOR DE IDADE / ERRO
+       ======================================================== */
+
     .custom-alert.warning {
 
         background-color: #FFFFFF;
@@ -434,7 +588,6 @@ st.markdown("""
        ======================================================== */
 
     .footer-space {
-
         height: 8px;
     }
 
@@ -454,7 +607,7 @@ st.markdown("""
 
 
     /* ========================================================
-       AJUSTES PARA TELAS PEQUENAS (CELULAR)
+       AJUSTES PARA TELAS PEQUENAS
        ======================================================== */
 
     @media (max-width: 480px) {
@@ -468,10 +621,15 @@ st.markdown("""
         }
 
         .stButton button {
+
             width: 110px !important;
+
             min-width: 110px !important;
+
             height: 70px !important;
+
             min-height: 70px !important;
+
             font-size: 13px !important;
         }
     }
@@ -479,27 +637,35 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
 # ============================================================
 # CABEÇALHO
 # ============================================================
+
 logo_col, title_col, right_col = st.columns(
     [1.15, 3.85, 1],
     gap="small"
 )
 
+
 # ============================================================
 # LOGO
 # ============================================================
+
 with logo_col:
+
     st.image(
         str(LOGO_PATH),
         width=115
     )
 
+
 # ============================================================
 # TÍTULO E SUBTÍTULO
 # ============================================================
+
 with title_col:
+
     st.title("VERIFICADOR DE IDADE")
 
     st.markdown(
@@ -512,15 +678,19 @@ with title_col:
         unsafe_allow_html=True
     )
 
+
 # ============================================================
 # FORMULÁRIO
 # ============================================================
+
 left, center, right = st.columns(
     [1, 3, 1],
     gap="small"
 )
 
+
 with center:
+
     # --------------------------------------------------------
     # NOME
     # --------------------------------------------------------
@@ -528,6 +698,7 @@ with center:
     nome = st.text_input(
         "Digite seu nome:"
     )
+
 
     # --------------------------------------------------------
     # ESPAÇO ENTRE OS CAMPOS
@@ -538,6 +709,7 @@ with center:
         unsafe_allow_html=True
     )
 
+
     # --------------------------------------------------------
     # IDADE
     # --------------------------------------------------------
@@ -547,6 +719,7 @@ with center:
         max_chars=3
     )
 
+
     # --------------------------------------------------------
     # BOTÃO
     # --------------------------------------------------------
@@ -555,6 +728,7 @@ with center:
         '<div class="button-area">',
         unsafe_allow_html=True
     )
+
 
     if st.button("Verificar"):
 
@@ -600,28 +774,35 @@ with center:
                 unsafe_allow_html=True
             )
 
+
     st.markdown(
         '</div>',
         unsafe_allow_html=True
     )
 
+
 # ============================================================
 # ESPAÇO ANTES DO RODAPÉ
 # ============================================================
+
 st.markdown(
     '<div class="footer-space"></div>',
     unsafe_allow_html=True
 )
 
+
 # ============================================================
 # RODAPÉ
 # ============================================================
+
 footer_left, footer_center, footer_right = st.columns(
     [0.05, 0.90, 0.05],
     gap="small"
 )
 
+
 with footer_center:
+
     st.image(
         str(FOOTER_PATH),
         use_container_width=True
