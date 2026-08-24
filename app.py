@@ -565,7 +565,7 @@ with center:
                 st.markdown(
                     """
                     <div class="custom-alert warning">
-                        Digite uma idade entre 0 e 100.
+                        Digite uma idade entre 0 e 99.
                     </div>
                     """,
                     unsafe_allow_html=True
@@ -598,7 +598,7 @@ with center:
                 st.markdown(
                     f"""
                     <div class="custom-alert success">
-                        Bem-vindo, {nome}! Você pode acessar
+                        Muito bem, {nome}! Você pode acessar
                         por ser maior de idade.
                     </div>
                     """,
