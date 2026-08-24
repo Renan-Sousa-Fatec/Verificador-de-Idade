@@ -162,7 +162,7 @@ st.markdown("""
 
 
     /* ========================================================
-       INPUT
+       INPUT CONTAINER
        ======================================================== */
 
     div[data-testid="stTextInput"] {
@@ -207,7 +207,9 @@ st.markdown("""
        CAMADA INTERNA BASEWEB
        ======================================================== */
 
-    div[data-testid="stTextInput"] div[data-baseweb="base-input"] {
+    div[data-testid="stTextInput"] div[data-baseweb="base-input"],
+    div[data-baseweb="input"]:focus-within,
+    div[data-baseweb="base-input"]:focus-within {
 
         background-color: #FFFFFF !important;
 
@@ -220,10 +222,13 @@ st.markdown("""
 
 
     /* ========================================================
-       INPUT REAL
+       INPUT REAL (Geral, Foco, Digitação e Hover)
        ======================================================== */
 
-    div[data-testid="stTextInput"] input {
+    div[data-testid="stTextInput"] input,
+    div[data-testid="stTextInput"] input:focus,
+    div[data-testid="stTextInput"] input:active,
+    div[data-testid="stTextInput"] input:hover {
 
         width: 100% !important;
 
@@ -239,7 +244,7 @@ st.markdown("""
 
         caret-color: #17130F !important;
 
-        text-shadow: 0 0 0 #17130F !important;
+        text-shadow: none !important;
 
         opacity: 1 !important;
 
@@ -270,51 +275,6 @@ st.markdown("""
 
 
     /* ========================================================
-       INPUT QUANDO CLICADO
-       ======================================================== */
-
-    div[data-testid="stTextInput"] input:focus,
-    div[data-testid="stTextInput"] input:active {
-
-        background: #FFFFFF !important;
-
-        background-color: #FFFFFF !important;
-
-        color: #17130F !important;
-
-        -webkit-text-fill-color: #17130F !important;
-
-        caret-color: #17130F !important;
-
-        text-shadow: 0 0 0 #17130F !important;
-
-        opacity: 1 !important;
-
-        border: none !important;
-
-        outline: none !important;
-
-        box-shadow: none !important;
-    }
-
-
-    /* ========================================================
-       INPUT NO HOVER
-       ======================================================== */
-
-    div[data-testid="stTextInput"] input:hover {
-
-        background: #FFFFFF !important;
-
-        background-color: #FFFFFF !important;
-
-        color: #17130F !important;
-
-        -webkit-text-fill-color: #17130F !important;
-    }
-
-
-    /* ========================================================
        PLACEHOLDER
        ======================================================== */
 
@@ -324,7 +284,7 @@ st.markdown("""
 
         -webkit-text-fill-color: #17130F !important;
 
-        opacity: 1 !important;
+        opacity: 0.6 !important;
     }
 
 
