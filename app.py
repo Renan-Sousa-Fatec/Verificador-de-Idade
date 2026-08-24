@@ -626,4 +626,3 @@ with footer_center:
         str(FOOTER_PATH),
         use_container_width=True
     )
-    
