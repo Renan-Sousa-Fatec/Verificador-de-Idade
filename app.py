@@ -57,6 +57,21 @@ st.markdown("""
 
 
     /* ========================================================
+       REMOVE "PRESS ENTER TO APPLY"
+       ======================================================== */
+
+    [data-testid="InputInstructions"] {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    [data-testid="InputInstructions"] > span {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+
+    /* ========================================================
        CONTAINER PRINCIPAL
        ======================================================== */
 
@@ -155,9 +170,6 @@ st.markdown("""
 
     /* ========================================================
        INPUTS
-       
-       IMPORTANTE:
-       Os dois campos agora são st.text_input().
        ======================================================== */
 
     div[data-testid="stTextInput"] input {
@@ -181,7 +193,7 @@ st.markdown("""
 
 
     /* ========================================================
-       INPUT QUANDO ESTÁ SENDO DIGITADO
+       INPUT FOCADO
        ======================================================== */
 
     div[data-testid="stTextInput"] input:focus {
@@ -229,12 +241,12 @@ st.markdown("""
 
 
     /* ========================================================
-       ESPAÇO ENTRE OS CAMPOS
+       ESPAÇO ENTRE NOME E IDADE
        ======================================================== */
 
     .field-space {
 
-        height: 25px;
+        height: 12px;
     }
 
 
@@ -254,7 +266,7 @@ st.markdown("""
 
         align-items: center;
 
-        margin: 20px auto 10px auto;
+        margin: 12px auto 10px auto;
     }
 
 
@@ -498,7 +510,7 @@ with center:
 
 
     # ========================================================
-    # ESPAÇO
+    # ESPAÇO ENTRE NOME E IDADE
     # ========================================================
 
     st.markdown(
@@ -545,7 +557,7 @@ with center:
 
 
             # ------------------------------------------------
-            # VERIFICA SE A IDADE ESTÁ NO INTERVALO
+            # IDADE FORA DO INTERVALO
             # ------------------------------------------------
 
             if idade < 0 or idade > 100:
@@ -595,7 +607,7 @@ with center:
 
 
         # ----------------------------------------------------
-        # CASO O USUÁRIO NÃO DIGITE UM NÚMERO
+        # IDADE INVÁLIDA
         # ----------------------------------------------------
 
         except ValueError:
