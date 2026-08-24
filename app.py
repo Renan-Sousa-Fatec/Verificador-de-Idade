@@ -40,17 +40,13 @@ st.markdown("""
         color-scheme: light !important;
     }
 
-    div[data-testid="stTextInput"] input {
-        color-scheme: light !important;
-    }
-
 
     /* ========================================================
-       ESCONDE O CABEÇALHO PADRÃO DO STREAMLIT
+       ESCONDE O CABEÇALHO PADRÃO
        ======================================================== */
 
     header[data-testid="stHeader"] {
-        display: none;
+        display: none !important;
     }
 
 
@@ -111,7 +107,7 @@ st.markdown("""
 
 
     /* ========================================================
-       ALINHA LOGO E TÍTULO NA MESMA LINHA
+       CABEÇALHO
        ======================================================== */
 
     div[data-testid="stHorizontalBlock"]:first-of-type {
@@ -215,7 +211,7 @@ st.markdown("""
 
 
     /* ========================================================
-       MOLDURA EXTERNA BRANCA
+       MOLDURA EXTERNA
        ======================================================== */
 
     div[data-testid="stTextInput"] > div {
@@ -242,26 +238,7 @@ st.markdown("""
        CAMADA BASEWEB
        ======================================================== */
 
-    div[data-testid="stTextInput"] div[data-baseweb="base-input"] {
-
-        width: 100% !important;
-
-        height: 39px !important;
-
-        background-color: #FFFFFF !important;
-
-        border: none !important;
-
-        border-radius: 10px !important;
-
-        box-shadow: none !important;
-
-        padding: 0 !important;
-
-        box-sizing: border-box !important;
-    }
-
-
+    div[data-testid="stTextInput"] div[data-baseweb="base-input"],
     div[data-testid="stTextInput"] div[data-baseweb="input"] {
 
         width: 100% !important;
@@ -286,7 +263,10 @@ st.markdown("""
        INPUT REAL
        ======================================================== */
 
-    div[data-testid="stTextInput"] input {
+    div[data-testid="stTextInput"] input,
+    div[data-testid="stTextInput"] input:focus,
+    div[data-testid="stTextInput"] input:active,
+    div[data-testid="stTextInput"] input:hover {
 
         width: 100% !important;
 
@@ -297,6 +277,10 @@ st.markdown("""
         background-color: #FFFFFF !important;
 
         color: #17130F !important;
+
+        -webkit-text-fill-color: #17130F !important;
+
+        caret-color: #17130F !important;
 
         border: none !important;
 
@@ -316,6 +300,8 @@ st.markdown("""
 
         font-weight: 900 !important;
 
+        opacity: 1 !important;
+
         color-scheme: light !important;
 
         -webkit-appearance: none !important;
@@ -325,7 +311,7 @@ st.markdown("""
 
 
     /* ========================================================
-       QUANDO CLICADO
+       FOCO DA CAIXA
        ======================================================== */
 
     div[data-testid="stTextInput"] > div:focus-within {
@@ -338,16 +324,7 @@ st.markdown("""
     }
 
 
-    div[data-testid="stTextInput"] div[data-baseweb="base-input"]:focus-within {
-
-        background-color: #FFFFFF !important;
-
-        border: none !important;
-
-        box-shadow: none !important;
-    }
-
-
+    div[data-testid="stTextInput"] div[data-baseweb="base-input"]:focus-within,
     div[data-testid="stTextInput"] div[data-baseweb="input"]:focus-within {
 
         background-color: #FFFFFF !important;
@@ -358,52 +335,6 @@ st.markdown("""
     }
 
 
-    div[data-testid="stTextInput"] input:focus {
-
-        background: #FFFFFF !important;
-
-        background-color: #FFFFFF !important;
-
-        color: #17130F !important;
-
-        border: none !important;
-
-        outline: none !important;
-
-        box-shadow: none !important;
-    }
-
-
-    div[data-testid="stTextInput"] input:active {
-
-        background: #FFFFFF !important;
-
-        background-color: #FFFFFF !important;
-
-        color: #17130F !important;
-
-        border: none !important;
-
-        outline: none !important;
-
-        box-shadow: none !important;
-    }
-
-
-    /* ========================================================
-       HOVER
-       ======================================================== */
-
-    div[data-testid="stTextInput"] input:hover {
-
-        background: #FFFFFF !important;
-
-        background-color: #FFFFFF !important;
-
-        color: #17130F !important;
-    }
-
-
     /* ========================================================
        PLACEHOLDER
        ======================================================== */
@@ -411,6 +342,8 @@ st.markdown("""
     div[data-testid="stTextInput"] input::placeholder {
 
         color: #17130F !important;
+
+        -webkit-text-fill-color: #17130F !important;
 
         opacity: 1 !important;
     }
@@ -607,7 +540,7 @@ st.markdown("""
 
 
     /* ========================================================
-       AJUSTES PARA TELAS PEQUENAS
+       TELAS PEQUENAS
        ======================================================== */
 
     @media (max-width: 480px) {
