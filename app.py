@@ -215,7 +215,7 @@ st.markdown("""
 
 
     /* ========================================================
-       MOLDURA EXTERNA
+       MOLDURA EXTERNA BRANCA
        ======================================================== */
 
     div[data-testid="stTextInput"] > div {
@@ -224,7 +224,7 @@ st.markdown("""
 
         height: 47px !important;
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         border: 4px solid #17130F !important;
 
@@ -248,7 +248,7 @@ st.markdown("""
 
         height: 39px !important;
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         border: none !important;
 
@@ -268,7 +268,7 @@ st.markdown("""
 
         height: 39px !important;
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         border: none !important;
 
@@ -292,9 +292,9 @@ st.markdown("""
 
         height: 39px !important;
 
-        background: #B84D2D !important;
+        background: #FFFFFF !important;
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         color: #17130F !important;
 
@@ -330,7 +330,7 @@ st.markdown("""
 
     div[data-testid="stTextInput"] > div:focus-within {
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         border: 4px solid #17130F !important;
 
@@ -340,7 +340,7 @@ st.markdown("""
 
     div[data-testid="stTextInput"] div[data-baseweb="base-input"]:focus-within {
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         border: none !important;
 
@@ -350,7 +350,7 @@ st.markdown("""
 
     div[data-testid="stTextInput"] div[data-baseweb="input"]:focus-within {
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         border: none !important;
 
@@ -360,9 +360,9 @@ st.markdown("""
 
     div[data-testid="stTextInput"] input:focus {
 
-        background: #B84D2D !important;
+        background: #FFFFFF !important;
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         color: #17130F !important;
 
@@ -376,9 +376,9 @@ st.markdown("""
 
     div[data-testid="stTextInput"] input:active {
 
-        background: #B84D2D !important;
+        background: #FFFFFF !important;
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         color: #17130F !important;
 
@@ -396,9 +396,9 @@ st.markdown("""
 
     div[data-testid="stTextInput"] input:hover {
 
-        background: #B84D2D !important;
+        background: #FFFFFF !important;
 
-        background-color: #B84D2D !important;
+        background-color: #FFFFFF !important;
 
         color: #17130F !important;
     }
