@@ -34,61 +34,25 @@ st.markdown("""
        CONFIGURAÇÃO GERAL
        ======================================================== */
 
-    html,
-    body {
+    html, body {
         color-scheme: light !important;
     }
-
-
-    /* ========================================================
-       ESCONDE HEADER DO STREAMLIT
-       ======================================================== */
 
     header[data-testid="stHeader"] {
         display: none !important;
     }
 
-
-    /* ========================================================
-       FUNDO
-       ======================================================== */
-
-    .stApp,
-    [data-testid="stAppViewContainer"],
-    [data-testid="stMain"] {
+    .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
         background-color: #FBE9A0 !important;
     }
 
-
-    /* ========================================================
-       CONTAINER PRINCIPAL
-       ======================================================== */
-
     .block-container {
-
         max-width: 762px !important;
-
         width: 100% !important;
-
-        padding-top: 10px !important;
-
-        padding-left: 16px !important;
-
-        padding-right: 16px !important;
-
-        padding-bottom: 0 !important;
-
-        margin-left: auto !important;
-
-        margin-right: auto !important;
-
+        padding: 10px 16px 0 16px !important;
+        margin: 0 auto !important;
         box-sizing: border-box !important;
     }
-
-
-    /* ========================================================
-       REMOVE ESPAÇAMENTOS EXCESSIVOS
-       ======================================================== */
 
     [data-testid="stVerticalBlock"] {
         gap: 0.15rem;
@@ -98,418 +62,156 @@ st.markdown("""
         padding: 0 !important;
     }
 
-
-    /* ========================================================
-       TÍTULO
-       ======================================================== */
-
     h1 {
-
         color: #17130F !important;
-
         font-family: "Courier New", monospace !important;
-
         font-size: 28px !important;
-
         font-weight: 900 !important;
-
         text-align: center !important;
-
-        margin-top: 30px !important;
-
-        margin-bottom: 10px !important;
+        margin: 30px 0 10px 0 !important;
     }
 
-
-    /* ========================================================
-       SUBTÍTULO
-       ======================================================== */
-
     .subtitle {
-
         color: #17130F;
-
         font-family: "Courier New", monospace;
-
         font-size: 14px;
-
         font-weight: bold;
-
         text-align: center;
-
         line-height: 1.25;
-
         margin-bottom: 18px;
     }
 
-
-    /* ========================================================
-       LABELS
-       ======================================================== */
-
     .stTextInput label {
-
         color: #17130F !important;
-
         font-family: "Courier New", monospace !important;
-
         font-size: 15px !important;
-
         font-weight: bold !important;
-
         margin-bottom: 4px !important;
     }
 
-
     /* ========================================================
-       INPUT CONTAINER
+       SOLUÇÃO DEFINITIVA DO INPUT (PC E MOBILE)
        ======================================================== */
 
+    /* Esconde as instruções nativas "Press Enter to apply" */
+    div[data-testid="stTextInput"] [data-testid="stInputInstructions"] {
+        display: none !important;
+    }
+
+    /* Caixa principal do Input */
     div[data-testid="stTextInput"] {
-
         width: 100% !important;
-
         max-width: 440px !important;
-
-        margin-left: auto !important;
-
-        margin-right: auto !important;
-
-        box-sizing: border-box !important;
+        margin: 0 auto !important;
     }
 
-
-    /* ========================================================
-       MOLDURA PRETA + FUNDO BRANCO
-       ======================================================== */
-
-    div[data-testid="stTextInput"] > div {
-
+    /* Moldura + Fundo Branco em todos os estados da caixa */
+    div[data-testid="stTextInput"] > div,
+    div[data-testid="stTextInput"] div[data-baseweb="input"],
+    div[data-testid="stTextInput"] div[data-baseweb="base-input"] {
         width: 100% !important;
-
         height: 47px !important;
-
         background-color: #FFFFFF !important;
-
         border: 4px solid #17130F !important;
-
         border-radius: 15px !important;
-
         padding: 0 !important;
-
-        box-sizing: border-box !important;
-
         box-shadow: none !important;
     }
 
-
-    /* ========================================================
-       CAMADA INTERNA BASEWEB
-       ======================================================== */
-
-    div[data-testid="stTextInput"] div[data-baseweb="base-input"],
-    div[data-baseweb="input"]:focus-within,
-    div[data-baseweb="base-input"]:focus-within {
-
-        background-color: #FFFFFF !important;
-
-        border: none !important;
-
-        border-radius: 10px !important;
-
-        box-shadow: none !important;
-    }
-
-
-    /* ========================================================
-       INPUT REAL (Geral, Foco, Digitação e Hover)
-       ======================================================== */
-
+    /* Força o texto PRETO enquanto digita (Foco, Ativo e Hover) */
     div[data-testid="stTextInput"] input,
     div[data-testid="stTextInput"] input:focus,
     div[data-testid="stTextInput"] input:active,
-    div[data-testid="stTextInput"] input:hover {
-
-        width: 100% !important;
-
-        height: 39px !important;
-
+    div[data-testid="stTextInput"] input:hover,
+    div[data-testid="stTextInput"] input:-webkit-autofill {
+        color: #17130F !important;
+        -webkit-text-fill-color: #17130F !important;
+        background-color: #FFFFFF !important;
         background: #FFFFFF !important;
-
-        background-color: #FFFFFF !important;
-
-        color: #17130F !important;
-
-        -webkit-text-fill-color: #17130F !important;
-
         caret-color: #17130F !important;
-
-        text-shadow: none !important;
-
-        opacity: 1 !important;
-
-        border: none !important;
-
-        outline: none !important;
-
-        box-shadow: none !important;
-
-        border-radius: 10px !important;
-
-        padding: 0 12px !important;
-
-        box-sizing: border-box !important;
-
         font-family: "Courier New", monospace !important;
-
         font-size: 16px !important;
-
         font-weight: 900 !important;
-
-        color-scheme: light !important;
-
-        -webkit-appearance: none !important;
-
-        appearance: none !important;
-    }
-
-
-    /* ========================================================
-       PLACEHOLDER
-       ======================================================== */
-
-    div[data-testid="stTextInput"] input::placeholder {
-
-        color: #17130F !important;
-
-        -webkit-text-fill-color: #17130F !important;
-
-        opacity: 0.6 !important;
-    }
-
-
-    /* ========================================================
-       SELEÇÃO DO TEXTO
-       ======================================================== */
-
-    div[data-testid="stTextInput"] input::selection {
-
-        background-color: #B84D2D !important;
-
-        color: #FFFFFF !important;
-
-        -webkit-text-fill-color: #FFFFFF !important;
-    }
-
-
-    /* ========================================================
-       FOCO DA MOLDURA
-       ======================================================== */
-
-    div[data-testid="stTextInput"] > div:focus-within {
-
-        background-color: #FFFFFF !important;
-
-        border: 4px solid #17130F !important;
-
+        opacity: 1 !important;
+        border: none !important;
+        outline: none !important;
         box-shadow: none !important;
+        padding: 0 12px !important;
+        height: 39px !important;
     }
-
-
-    /* ========================================================
-       ESPAÇO ENTRE OS CAMPOS
-       ======================================================== */
 
     .field-space {
         height: 28px;
     }
 
-
     /* ========================================================
-       BOTÃO
+       BOTÃO E ALERTAS
        ======================================================== */
 
     .button-area {
-
         width: 100%;
-
         max-width: 440px;
-
         display: flex;
-
         justify-content: center;
-
         align-items: center;
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-        margin-top: 20px;
-
-        margin-bottom: 10px;
+        margin: 20px auto 10px auto;
     }
-
 
     .stButton {
-
         width: 100% !important;
-
         display: flex !important;
-
         justify-content: center !important;
-
-        align-items: center !important;
     }
 
-
-    .stButton button {
-
-        width: 126px !important;
-
-        min-width: 126px !important;
-
-        height: 80px !important;
-
-        min-height: 80px !important;
-
-        padding: 0 !important;
-
-        background-color: #B84D2D !important;
-
-        color: #D8C8B0 !important;
-
-        border: 4px solid #17130F !important;
-
-        border-radius: 18px !important;
-
-        box-sizing: border-box !important;
-
-        font-family: "Courier New", monospace !important;
-
-        font-size: 15px !important;
-
-        font-weight: bold !important;
-
-        box-shadow: none !important;
-
-        outline: none !important;
-
-        transition: none !important;
-    }
-
-
-    /* ========================================================
-       BOTÃO - TODOS OS ESTADOS
-       ======================================================== */
-
+    .stButton button,
     .stButton button:hover,
     .stButton button:focus,
     .stButton button:active {
-
+        width: 126px !important;
+        min-width: 126px !important;
+        height: 80px !important;
+        min-height: 80px !important;
+        padding: 0 !important;
         background-color: #B84D2D !important;
-
         color: #D8C8B0 !important;
-
         border: 4px solid #17130F !important;
-
+        border-radius: 18px !important;
+        font-family: "Courier New", monospace !important;
+        font-size: 15px !important;
+        font-weight: bold !important;
         box-shadow: none !important;
-
         outline: none !important;
     }
 
-
-    /* ========================================================
-       MENSAGEM DE RESULTADO
-       ======================================================== */
-
     .custom-alert {
-
         width: 100%;
-
         max-width: 440px;
-
         margin: 10px auto;
-
         padding: 16px 20px;
-
         border-radius: 15px;
-
         border: 4px solid #17130F;
-
         background-color: #FFFFFF;
-
         font-family: "Courier New", monospace;
-
         font-weight: 900;
-
         font-size: 15px;
-
         line-height: 1.35;
-
         box-sizing: border-box;
-
         text-align: left;
     }
 
+    .custom-alert.success { color: #198754; }
+    .custom-alert.warning { color: #D90429; }
 
-    .custom-alert.success {
-        color: #198754;
-    }
-
-
-    .custom-alert.warning {
-        color: #D90429;
-    }
-
-
-    /* ========================================================
-       ESPAÇO ANTES DO RODAPÉ
-       ======================================================== */
-
-    .footer-space {
-        height: 8px;
-    }
-
-
-    /* ========================================================
-       RODAPÉ
-       ======================================================== */
-
-    .footer-column {
-
-        width: 90%;
-
-        margin-left: auto;
-
-        margin-right: auto;
-    }
-
-
-    /* ========================================================
-       MOBILE
-       ======================================================== */
+    .footer-space { height: 8px; }
 
     @media (max-width: 480px) {
-
-        h1 {
-            font-size: 20px !important;
-        }
-
-        .subtitle {
-            font-size: 13px;
-        }
-
+        h1 { font-size: 20px !important; }
+        .subtitle { font-size: 13px; }
         .stButton button {
-
             width: 110px !important;
-
             min-width: 110px !important;
-
             height: 70px !important;
-
             min-height: 70px !important;
-
             font-size: 13px !important;
         }
     }
