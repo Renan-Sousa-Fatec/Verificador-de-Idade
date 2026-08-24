@@ -14,7 +14,7 @@ st.set_page_config(
 
 
 # ============================================================
-# CAMINHOS
+# CAMINHOS DOS ARQUIVOS
 # ============================================================
 
 BASE_DIR = Path(__file__).parent
@@ -139,8 +139,7 @@ st.markdown("""
        LABELS
        ======================================================== */
 
-    .stTextInput label,
-    .stNumberInput label {
+    .stTextInput label {
 
         color: #17130F !important;
 
@@ -158,12 +157,10 @@ st.markdown("""
        INPUTS
        
        IMPORTANTE:
-       Não estamos colocando um monte de regras aqui.
-       O teste mínimo mostrou que estas são suficientes.
+       Os dois campos agora são st.text_input().
        ======================================================== */
 
-    div[data-testid="stTextInput"] input,
-    div[data-testid="stNumberInput"] input {
+    div[data-testid="stTextInput"] input {
 
         background-color: #FFFFFF !important;
 
@@ -184,11 +181,10 @@ st.markdown("""
 
 
     /* ========================================================
-       INPUT FOCADO
+       INPUT QUANDO ESTÁ SENDO DIGITADO
        ======================================================== */
 
-    div[data-testid="stTextInput"] input:focus,
-    div[data-testid="stNumberInput"] input:focus {
+    div[data-testid="stTextInput"] input:focus {
 
         background-color: #FFFFFF !important;
 
@@ -203,7 +199,7 @@ st.markdown("""
 
 
     /* ========================================================
-       CAIXA DO NOME
+       MOLDURA DOS INPUTS
        ======================================================== */
 
     div[data-testid="stTextInput"] > div {
@@ -219,27 +215,10 @@ st.markdown("""
 
 
     /* ========================================================
-       CAIXA DA IDADE
+       CAMADA INTERNA
        ======================================================== */
 
-    div[data-testid="stNumberInput"] > div {
-
-        background-color: #FFFFFF !important;
-
-        border: 4px solid #17130F !important;
-
-        border-radius: 15px !important;
-
-        box-shadow: none !important;
-    }
-
-
-    /* ========================================================
-       CAMADAS INTERNAS
-       ======================================================== */
-
-    div[data-testid="stTextInput"] div[data-baseweb="base-input"],
-    div[data-testid="stNumberInput"] div[data-baseweb="input"] {
+    div[data-testid="stTextInput"] div[data-baseweb="base-input"] {
 
         background-color: #FFFFFF !important;
 
@@ -250,45 +229,11 @@ st.markdown("""
 
 
     /* ========================================================
-       REMOVE OS BOTÕES + E - DA IDADE
-       ======================================================== */
-
-    div[data-testid="stNumberInput"] button {
-
-        display: none !important;
-
-        visibility: hidden !important;
-    }
-
-
-    /* Chrome / Edge / Safari */
-
-    div[data-testid="stNumberInput"] input::-webkit-inner-spin-button,
-    div[data-testid="stNumberInput"] input::-webkit-outer-spin-button {
-
-        -webkit-appearance: none !important;
-
-        appearance: none !important;
-
-        margin: 0 !important;
-    }
-
-
-    /* Firefox */
-
-    div[data-testid="stNumberInput"] input[type="number"] {
-
-        -moz-appearance: textfield !important;
-
-        appearance: textfield !important;
-    }
-
-
-    /* ========================================================
-       ESPAÇO ENTRE NOME E IDADE
+       ESPAÇO ENTRE OS CAMPOS
        ======================================================== */
 
     .field-space {
+
         height: 25px;
     }
 
@@ -322,6 +267,8 @@ st.markdown("""
         justify-content: center !important;
 
         align-items: center !important;
+
+        margin: 0 !important;
     }
 
 
@@ -423,7 +370,7 @@ st.markdown("""
 
 
     /* ========================================================
-       MENOR DE IDADE / ERRO
+       ERRO / MENOR DE IDADE
        ======================================================== */
 
     .custom-alert.warning {
@@ -433,8 +380,6 @@ st.markdown("""
 
     /* ========================================================
        ESPAÇO EXTRA ENTRE RESPOSTA E RODAPÉ
-       
-       Aqui coloquei uma linha a mais.
        ======================================================== */
 
     .footer-space {
@@ -513,7 +458,7 @@ with logo_col:
 
 
 # ============================================================
-# TÍTULO
+# TÍTULO E SUBTÍTULO
 # ============================================================
 
 with title_col:
@@ -566,12 +511,8 @@ with center:
     # IDADE
     # ========================================================
 
-    idade = st.number_input(
-        "Digite sua idade:",
-        min_value=0,
-        max_value=100,
-        value=0,
-        step=1
+    idade_texto = st.text_input(
+        "Digite sua idade:"
     )
 
 
@@ -598,25 +539,71 @@ with center:
 
     if verificar:
 
-        if idade < 18:
+        try:
+
+            idade = int(idade_texto)
+
+
+            # ------------------------------------------------
+            # VERIFICA SE A IDADE ESTÁ NO INTERVALO
+            # ------------------------------------------------
+
+            if idade < 0 or idade > 100:
+
+                st.markdown(
+                    """
+                    <div class="custom-alert warning">
+                        Digite uma idade entre 0 e 100.
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+
+            # ------------------------------------------------
+            # MENOR DE IDADE
+            # ------------------------------------------------
+
+            elif idade < 18:
+
+                st.markdown(
+                    f"""
+                    <div class="custom-alert warning">
+                        Infelizmente, {nome}, você não pode
+                        acessar por ser menor de idade.
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+
+            # ------------------------------------------------
+            # MAIOR DE IDADE
+            # ------------------------------------------------
+
+            else:
+
+                st.markdown(
+                    f"""
+                    <div class="custom-alert success">
+                        Bem-vindo, {nome}! Você pode acessar
+                        por ser maior de idade.
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+
+        # ----------------------------------------------------
+        # CASO O USUÁRIO NÃO DIGITE UM NÚMERO
+        # ----------------------------------------------------
+
+        except ValueError:
 
             st.markdown(
-                f"""
+                """
                 <div class="custom-alert warning">
-                    Infelizmente, {nome}, você não pode
-                    acessar por ser menor de idade.
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-
-        else:
-
-            st.markdown(
-                f"""
-                <div class="custom-alert success">
-                    Muito bem, {nome}! Você pode acessar
-                    por ser maior de idade.
+                    Digite uma idade válida.
                 </div>
                 """,
                 unsafe_allow_html=True
