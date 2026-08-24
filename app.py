@@ -31,7 +31,7 @@ st.markdown("""
 <style>
 
     /* ========================================================
-       FORÇA ESQUEMA DE CORES CLARO
+       ESQUEMA CLARO
        ======================================================== */
 
     html,
@@ -42,7 +42,7 @@ st.markdown("""
 
 
     /* ========================================================
-       ESCONDE O CABEÇALHO PADRÃO
+       ESCONDE HEADER
        ======================================================== */
 
     header[data-testid="stHeader"] {
@@ -51,7 +51,7 @@ st.markdown("""
 
 
     /* ========================================================
-       FUNDO DA APLICAÇÃO
+       FUNDO
        ======================================================== */
 
     .stApp {
@@ -77,15 +77,11 @@ st.markdown("""
         width: 100% !important;
 
         padding-top: 10px !important;
-
         padding-left: 16px !important;
-
         padding-right: 16px !important;
-
         padding-bottom: 0 !important;
 
         margin-left: auto !important;
-
         margin-right: auto !important;
 
         box-sizing: border-box !important;
@@ -93,13 +89,12 @@ st.markdown("""
 
 
     /* ========================================================
-       REDUZ ESPAÇAMENTOS PADRÃO
+       ESPAÇAMENTOS
        ======================================================== */
 
     [data-testid="stVerticalBlock"] {
         gap: 0.15rem;
     }
-
 
     [data-testid="column"] {
         padding: 0 !important;
@@ -131,7 +126,6 @@ st.markdown("""
         text-align: center !important;
 
         margin-top: 30px !important;
-
         margin-bottom: 10px !important;
 
         white-space: normal !important;
@@ -165,11 +159,9 @@ st.markdown("""
 
     .form-column {
         width: 100%;
-
         max-width: 440px;
 
         margin-left: auto;
-
         margin-right: auto;
     }
 
@@ -179,7 +171,6 @@ st.markdown("""
        ======================================================== */
 
     .stTextInput label {
-
         color: #17130F !important;
 
         font-family: "Courier New", monospace !important;
@@ -203,7 +194,6 @@ st.markdown("""
         max-width: 440px !important;
 
         margin-left: auto !important;
-
         margin-right: auto !important;
 
         box-sizing: border-box !important;
@@ -211,7 +201,7 @@ st.markdown("""
 
 
     /* ========================================================
-       MOLDURA EXTERNA
+       CAIXA EXTERNA
        ======================================================== */
 
     div[data-testid="stTextInput"] > div {
@@ -235,44 +225,26 @@ st.markdown("""
 
 
     /* ========================================================
-       CAMADA BASEWEB
+       BASEWEB
        ======================================================== */
 
-    div[data-testid="stTextInput"] div[data-baseweb="base-input"],
-    div[data-testid="stTextInput"] div[data-baseweb="input"] {
-
-        width: 100% !important;
-
-        height: 39px !important;
+    div[data-testid="stTextInput"] div[data-baseweb="base-input"] {
 
         background-color: #FFFFFF !important;
 
         border: none !important;
 
-        border-radius: 10px !important;
-
         box-shadow: none !important;
 
-        padding: 0 !important;
-
-        box-sizing: border-box !important;
+        border-radius: 10px !important;
     }
 
 
     /* ========================================================
-       INPUT REAL
+       INPUT
        ======================================================== */
 
-    div[data-testid="stTextInput"] input,
-    div[data-testid="stTextInput"] input:focus,
-    div[data-testid="stTextInput"] input:active,
-    div[data-testid="stTextInput"] input:hover {
-
-        width: 100% !important;
-
-        height: 39px !important;
-
-        background: #FFFFFF !important;
+    div[data-testid="stTextInput"] input {
 
         background-color: #FFFFFF !important;
 
@@ -284,15 +256,9 @@ st.markdown("""
 
         border: none !important;
 
-        border-radius: 10px !important;
-
         outline: none !important;
 
         box-shadow: none !important;
-
-        padding: 0 12px !important;
-
-        box-sizing: border-box !important;
 
         font-family: "Courier New", monospace !important;
 
@@ -303,35 +269,44 @@ st.markdown("""
         opacity: 1 !important;
 
         color-scheme: light !important;
-
-        -webkit-appearance: none !important;
-
-        appearance: none !important;
     }
 
 
     /* ========================================================
-       FOCO DA CAIXA
+       INPUT FOCADO
        ======================================================== */
 
-    div[data-testid="stTextInput"] > div:focus-within {
+    div[data-testid="stTextInput"] input:focus {
 
         background-color: #FFFFFF !important;
 
-        border: 4px solid #17130F !important;
+        color: #17130F !important;
+
+        -webkit-text-fill-color: #17130F !important;
+
+        caret-color: #17130F !important;
+
+        border: none !important;
+
+        outline: none !important;
 
         box-shadow: none !important;
     }
 
 
-    div[data-testid="stTextInput"] div[data-baseweb="base-input"]:focus-within,
-    div[data-testid="stTextInput"] div[data-baseweb="input"]:focus-within {
+    /* ========================================================
+       INPUT ATIVO
+       ======================================================== */
+
+    div[data-testid="stTextInput"] input:active {
 
         background-color: #FFFFFF !important;
 
-        border: none !important;
+        color: #17130F !important;
 
-        box-shadow: none !important;
+        -webkit-text-fill-color: #17130F !important;
+
+        caret-color: #17130F !important;
     }
 
 
@@ -375,11 +350,9 @@ st.markdown("""
         align-items: center;
 
         margin-left: auto;
-
         margin-right: auto;
 
         margin-top: 20px;
-
         margin-bottom: 10px;
 
         box-sizing: border-box;
@@ -441,7 +414,7 @@ st.markdown("""
 
 
     /* ========================================================
-       BOTÃO - HOVER / FOCUS / ACTIVE
+       BOTÃO - TODOS OS ESTADOS
        ======================================================== */
 
     .stButton button:hover,
@@ -461,7 +434,7 @@ st.markdown("""
 
 
     /* ========================================================
-       MENSAGENS DE RESULTADO
+       MENSAGENS
        ======================================================== */
 
     .custom-alert {
@@ -493,7 +466,7 @@ st.markdown("""
 
 
     /* ========================================================
-       MAIOR DE IDADE
+       SUCESSO
        ======================================================== */
 
     .custom-alert.success {
@@ -505,7 +478,7 @@ st.markdown("""
 
 
     /* ========================================================
-       MENOR DE IDADE / ERRO
+       ERRO / MENOR DE IDADE
        ======================================================== */
 
     .custom-alert.warning {
@@ -517,7 +490,7 @@ st.markdown("""
 
 
     /* ========================================================
-       ESPAÇO ANTES DO RODAPÉ
+       ESPAÇO DO RODAPÉ
        ======================================================== */
 
     .footer-space {
@@ -534,13 +507,12 @@ st.markdown("""
         width: 90%;
 
         margin-left: auto;
-
         margin-right: auto;
     }
 
 
     /* ========================================================
-       TELAS PEQUENAS
+       MOBILE
        ======================================================== */
 
     @media (max-width: 480px) {
@@ -634,7 +606,7 @@ with center:
 
 
     # --------------------------------------------------------
-    # ESPAÇO ENTRE OS CAMPOS
+    # ESPAÇO ENTRE CAMPOS
     # --------------------------------------------------------
 
     st.markdown(
